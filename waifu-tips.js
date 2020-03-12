@@ -13,7 +13,7 @@ function loadWidget(config) {
 	if (!apiPath.endsWith("/")) apiPath += "/";
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
-	document.body.insertAdjacentHTML("beforeend", `<div id="waifu" style="right: 30px; display: none;">
+	document.body.insertAdjacentHTML("beforeend", `<div id="waifu">
 			<div id="waifu-tips"></div>
 			<canvas id="live2d" width="300" height="300"></canvas>
 			<div id="waifu-tool">
@@ -29,6 +29,8 @@ function loadWidget(config) {
 	// https://stackoverflow.com/questions/24148403/trigger-css-transition-on-appended-element
 	setTimeout(() => {
 		document.getElementById("waifu").style.bottom = 0;
+		document.getElementById("waifu").style.right = "30px";
+		document.getElementById("waifu").style.display = "none";
 	}, 0);
 
 	function randomSelection(obj) {
